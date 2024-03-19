@@ -7,14 +7,14 @@ import lombok.Data;
 @AllArgsConstructor
 public class Circle extends Figure{
     private double radius;
-    private final static double pi = 3.14;
+    private final static double PI = 3.14;
     public  double perimeter(){
 
-        return 2*pi*radius;
+        return 2*PI*radius;
     }
     public double area(){
 
-        return  2*pi*radius*radius;
+        return  2*PI*radius*radius;
     }
 }
 
