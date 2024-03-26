@@ -15,5 +15,6 @@ public class InterfacesPractice {
         fishOlga.maxSwimSpeed();
         Swimable dogVlad = new Dog();
         dogVlad.swim();
+        badGin.canYouCreateWish();
     }
 }

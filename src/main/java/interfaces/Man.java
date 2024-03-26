@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Man implements Walkable,Runable,Swimable{
+public class Man implements Walkable,Runable,Swimable,Eatable,Talkable{
 
     @Override
     public void walk() {
@@ -30,5 +30,12 @@ public class Man implements Walkable,Runable,Swimable{
     @Override
     public double maxSwimSpeed() {
         return 10;
+    }
+    public void eat(){
+        System.out.println("man can eat");
+
+    }
+    public void talk(){
+        System.out.println("man can talk");
     }
 }
