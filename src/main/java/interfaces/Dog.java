@@ -1,16 +1,7 @@
 package interfaces;
 
-public class Dog implements Runable,Walkable,Flyable,Swimable {
-    @Override
-    public void fly() {
-        System.out.println("Собака не умеет летать");
-    }
+public class Dog implements Runable,Walkable,Swimable {
 
-    @Override
-    public String flyMaxDistance() {
-        System.out.println("Собака не умеет летать ");
-        return null;
-    }
 
     @Override
     public void run() {

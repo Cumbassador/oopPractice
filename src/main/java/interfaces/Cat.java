@@ -1,16 +1,7 @@
 package interfaces;
 
-public class Cat implements Runable,Walkable,Flyable,Swimable{
-    @Override
-    public void fly() {
-        System.out.println("Cat cant fly");
+public class Cat implements Runable,Walkable,Swimable{
 
-    }
-
-    @Override
-    public String flyMaxDistance() {
-        return null;
-    }
 
     @Override
     public void run() {

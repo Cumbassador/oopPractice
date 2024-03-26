@@ -14,24 +14,24 @@ public class Bird implements Runable,Walkable,Flyable,Swimable{
 
     @Override
     public void run() {
-        System.out.println("Bird cant fly");
+        System.out.println("Bird cant run");
 
     }
 
     @Override
     public int maxRunDictance() {
-        return 0;
+        return 1;
     }
 
     @Override
     public void swim() {
-        System.out.println("Bird cant swim");
+        System.out.println("Bird can swim");
 
     }
 
     @Override
     public double maxSwimSpeed() {
-        return 0;
+        return 2 ;
     }
 
     @Override

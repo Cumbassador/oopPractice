@@ -1,24 +1,13 @@
 package interfaces;
 
-public class Man implements Walkable, Flyable,Runable,Swimable{
+public class Man implements Walkable,Runable,Swimable{
 
     @Override
     public void walk() {
         System.out.println("Человек ходит");
     }
 
-    @Override
-    public void fly() {
-        System.out.println("Не может летать");
 
-    }
-
-    @Override
-    public String flyMaxDistance() {
-        System.out.println("не может летать");
-
-        return null;
-    }
 
     @Override
     public void run() {

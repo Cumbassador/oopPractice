@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Fish implements Runable,Walkable,Flyable,Swimable {
+public class Fish implements Flyable,Swimable {
     @Override
     public void fly() {
         System.out.println("Fish cant fly");
@@ -13,16 +13,7 @@ public class Fish implements Runable,Walkable,Flyable,Swimable {
         return null;
     }
 
-    @Override
-    public void run() {
-        System.out.println("Fish cant run");
 
-    }
-
-    @Override
-    public int maxRunDictance() {
-        return 0;
-    }
 
     @Override
     public void swim() {
@@ -35,9 +26,5 @@ public class Fish implements Runable,Walkable,Flyable,Swimable {
         return 30;
     }
 
-    @Override
-    public void walk() {
-        System.out.println("Fish cant walk");
 
-    }
 }
