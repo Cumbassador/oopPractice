@@ -21,15 +21,25 @@ public class Person implements Comparable<Person>, Cloneable {
 
     @Override
     public int compareTo(Person o) {
-        int i =secondName.hashCode()-o.secondName.hashCode();
-        if (i==0){
-            i =name.hashCode()-o.name.hashCode();{
-                if(i == 0 ){
-                    i = age - o.age;
-                }
+        int i =  (secondName.compareTo(o.secondName));
+
+        if(i == 0){
+            i = name.compareTo(o.name);
+            if(i == 0){
+                i = age - o.age;
             }
+
         }
         return i;
+//        int i =secondName.hashCode()-o.secondName.hashCode();
+//        if (i==0){
+//            i =name.hashCode()-o.name.hashCode();{
+//                if(i == 0 ){
+//                    i = age - o.age;
+//                }
+//            }
+//        }
+//        return i;
     }
 
     protected boolean canEqual(final Object other) {
