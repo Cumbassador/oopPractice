@@ -40,7 +40,7 @@ public class MyArrayList {
 
     public boolean add(Object o) {
         if (realSize == array.length) {
-            Object[] resArray = new Object[array.length * 3 / 2 + 1];
+            Object[] resArray = new Object[array.length *3/2 +1];
             //копирование массива
             System.arraycopy(array, 0, resArray, 0, array.length);
             array = resArray;
@@ -49,43 +49,124 @@ public class MyArrayList {
         array[realSize++] = o;
         return true;
     }
-
     public boolean remove(Object o) {
-        return false;
+        int delIndex = -1;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]!=null && array[i].equals(o)){
+                delIndex = i;
+                break;
+            }
+        }
+        for (int i = delIndex; i < array.length - 1 ; i++) {
+            array[i] =array[i+1];
+
+        }
+        if (delIndex == -1){
+            return false;
+        } else{
+            realSize--;
+            return true;
+        }
+
     }
 
     public void clear() {
         Object object = null;
         for (int i = 0; i < array.length; i++) {
             array[i]=object;
-
         }
         realSize=0;
-
-
     }
 
     public Object get(int index) {
-        return null;
+        for (int i = 0; i < array.length; i++) {
+            if( index == i) {
+                return array[i];
+            }
+
+        }
+        return "Такого индекса не существует.";
     }
 
     public Object set(int index, Object element) {
-        return null;
+        for (int i = 0; i < array.length; i++) {
+            if (index==i){
+                array[i]=element;
+
+            }
+        }
+        return "Нет такого индекса.";
     }
 
     public void add(int index, Object element) {
+        if (realSize == array.length) {
+            Object[] resArray = new Object[array.length *3/2 +1];
+            //копирование массива
+            System.arraycopy(array, 0, resArray, 0, array.length);
+            array = resArray;
+            //вставка массива
+        }
+        for (int i = index; i < array.length-1; i++) {
+            if (index==i){
+                realSize++;
+            }
+            if(array[i]==null){
+                array[i]=element;
+            }
+        }
+        int shift = 1;
+        for (int s = 0; s < shift; s++) {
+            Object temp = array[array.length-1];
+            for (int i = array.length - 1; i > index; i--) {
+                    array[i] = array[i - 1];
+            }
+            array[array.length-1] = temp;
+        }
 
     }
 
     public Object remove(int index) {
-        return null;
+        checkIndex(index);
+
+        Object resElement = array[index];
+
+        for (int i = index; i < array.length - 1; i++) {
+            array[i] = array[i+1];
+        }
+        realSize--;
+        return resElement;
+    }
+
+    private void checkIndex(int index) {
+        if(!isCorrectIndex(index)){
+            throw new ArrayIndexOutOfBoundsException("Некорректный индекс");
+        }
+    }
+
+    private boolean isCorrectIndex(int index){
+        if ((index>-1) || (index<realSize)){
+            return true;
+        }
+        return false;
     }
 
     public int indexOf(Object o) {
-        return 0;
+        for (int i = 0; i < array.length; i++) {
+            if (o==array[i]){
+                System.out.println("Индекс обьекта равен " + i);
+            }
+        }
+        return 0 ;
     }
 
     public int lastIndexOf(Object o) {
+        for (int i = array.length-1; i>=0; i--) {
+            if (o==array[i]){
+                System.out.println("Индекс последнего обьекта равен " + i);
+                break;
+            }
+
+        }
         return 0;
     }
 
