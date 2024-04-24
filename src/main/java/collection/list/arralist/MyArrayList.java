@@ -119,9 +119,16 @@ public class MyArrayList {
             Object temp = array[array.length-1];
             for (int i = array.length - 1; i > index; i--) {
                     array[i] = array[i - 1];
+
             }
             array[array.length-1] = temp;
+
+
         }
+        realSize++;
+
+
+
 
     }
 
