@@ -38,7 +38,7 @@ public class MyArrayList {
 
     }
 
-    public boolean add(Object o) {
+    public void add(Object o) {
         if (realSize == array.length) {
             Object[] resArray = new Object[array.length *3/2 +1];
             //копирование массива
@@ -47,7 +47,7 @@ public class MyArrayList {
             //вставка массива
         }
         array[realSize++] = o;
-        return true;
+
     }
     public boolean remove(Object o) {
         int delIndex = -1;
@@ -99,33 +99,44 @@ public class MyArrayList {
     }
 
     public void add(int index, Object element) {
-        if (realSize == array.length) {
-            Object[] resArray = new Object[array.length *3/2 +1];
-            //копирование массива
-            System.arraycopy(array, 0, resArray, 0, array.length);
-            array = resArray;
-            //вставка массива
-        }
-        for (int i = index; i < array.length-1; i++) {
-            if (index==i){
-                realSize++;
-            }
-            if(array[i]==null){
-                array[i]=element;
-            }
-        }
-        int shift = 1;
-        for (int s = 0; s < shift; s++) {
-            Object temp = array[array.length-1];
-            for (int i = array.length - 1; i > index; i--) {
-                    array[i] = array[i - 1];
-
-            }
-            array[array.length-1] = temp;
-
-
-        }
         realSize++;
+        if (index > 0)
+        {
+            System.arraycopy(array, index, array, index+1, realSize - index);
+        }
+        array[index] = element;
+
+
+
+
+
+//        if (realSize == array.length) {
+//            Object[] resArray = new Object[array.length *3/2 +1];
+//            //копирование массива
+//            System.arraycopy(array, 0, resArray, 0, array.length);
+//            array = resArray;
+//            //вставка массива
+//        }
+//        for (int i = index; i < array.length-1; i++) {
+//            if (index==i){
+//                realSize++;
+//            }
+//            if(array[i]==null){
+//                array[i]=element;
+//            }
+//        }
+//        int shift = 1;
+//        for (int s = 0; s < shift; s++) {
+//            Object temp = array[array.length-1];
+//            for (int i = array.length - 1; i > index; i--) {
+//                    array[i] = array[i - 1];
+//
+//            }
+//            array[array.length-1] = temp;
+//
+//
+//        }
+//        realSize++;
 
 
 

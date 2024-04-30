@@ -67,8 +67,8 @@ public class MyArraListPractice {
         System.out.println("list = " + list);
         list.add(6,"Прикольный");
         System.out.println("list = " + list);
-        System.out.println("list.size() = " + list.size());
-        list.add(8,"Сергей");
+
+
 
 
 

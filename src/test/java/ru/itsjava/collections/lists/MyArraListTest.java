@@ -1,5 +1,6 @@
 package ru.itsjava.collections.lists;
 
+import collection.list.arralist.MyArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,24 +12,24 @@ import java.util.List;
 public class MyArraListTest {
     public static final int REAL_SIZE = 2;
     public static final int DEFAULT_INT = 10;
-    List<String> mylist = new ArrayList<String>();
+    List<MyArrayList> mylist = new ArrayList<>();
 
 
 
 
     @Test
-    @DisplayName("Должен вернуть корректный размер массива")
+    @DisplayName("Должен вернуть массив")
     public void checkMyArrayList(){
-        mylist = new ArrayList<String>();
+        mylist = new ArrayList<>();
         mylist.size();
         Assertions.assertEquals(0,0);
     }
     @Test
     @DisplayName("Должен вернуть корректный размер REAL_SIZE")
     public void checkSize() {
-        mylist = new ArrayList<String>();
-        mylist.add("dasd");
-        mylist.add("Dasd");
+        mylist = new ArrayList<>();
+
+
         Assertions.assertEquals(REAL_SIZE,mylist.size());
     }
     @Test
