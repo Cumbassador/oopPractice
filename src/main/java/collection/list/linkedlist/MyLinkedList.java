@@ -82,17 +82,16 @@ public class MyLinkedList {
     }
 
     public Object set(int index, Object element) {
-        int count = 0;
-        Node curNode = head;
-        while (curNode.getNext() != null) {
+        checkIndex(index);
+        int count=0;
+        Node newNode = head;
+        while (count<index){
+            newNode = newNode.getNext();
             count++;
-                    if(count==index){
-                        curNode.setValue(curNode.getNext());
-                        break;
 
-                    }
         }
-        return curNode.getValue();
+        newNode.setValue(element);
+        return newNode.getValue();
     }
 
     public void add(int index, Object element) {

@@ -24,7 +24,8 @@ public class MyLinkedListPractice {
         list.add("Строчка3");
         System.out.println("list.contains(0) = " + list.contains("Строчка1"));
         System.out.println("list.get(1) = " + list.get(1));
-
+        System.out.println("list.set(1,\"Hello\") = " + list.set(1, "Hello"));
+        System.out.println("list = " + list);
 
 
     }
