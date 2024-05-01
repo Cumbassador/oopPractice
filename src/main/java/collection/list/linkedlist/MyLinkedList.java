@@ -100,32 +100,32 @@ public class MyLinkedList {
 
     public Object remove(int index) {
         checkIndex(index);//проверка есть ли в списке такой индекс
-        if (index == 0) {
+        if (index == 0) {  //условие если индекс равен 0 то создаем узел,передаем туда значение head и передаем значение null
             Object resValue = head.getValue();
-            if (head.getNext() == null) {
+            if (head.getNext() == null) {// если ссылка равна null то head равен null
                 head = null;
             } else {
-                head = head.getNext();
+                head = head.getNext(); //иначе передаем значени. head значение след элемента, то есть первый элемент удаляется
             }
             return resValue;
         }
         Node curNode = head;
         Node prevNode = head;
         int count = 0;
-        while ((curNode = curNode.getNext()) != null) {
+        while ((curNode = curNode.getNext()) != null) {//бежим до нужного нам элемента
             count++;
             if (count == index) {
                 break;
             }
-            prevNode = prevNode.getNext();
+            prevNode = prevNode.getNext(); //предыдузие значение
         }
-        if (curNode.getNext() == null) {
+        if (curNode.getNext() == null) {//если нужно удалить последний эдемент
             Object resValue = curNode.getValue();
             prevNode.setNext(null);
             return resValue;
         }
-        prevNode.setNext(curNode.getNext());
-        curNode.setNext(null);
+        prevNode.setNext(curNode.getNext());//перенаправил значение ссылки
+        curNode.setNext(null);//значение второго элемента делаю равным null
         Object resValue = curNode.getValue();
         return resValue;
 
