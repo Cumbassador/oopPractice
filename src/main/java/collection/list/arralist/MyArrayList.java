@@ -99,6 +99,7 @@ public class MyArrayList {
     }
 
     public void add(int index, Object element) {
+        checkIndex(index);
         realSize++;
         if (index > 0)
         {
