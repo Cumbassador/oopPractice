@@ -57,7 +57,28 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        if (head == null) { //проверка на то если первый элемент не равен 0
+            return false;
+        }
+        if (head.getValue().equals(o)){ //проверка если значение перывого эдемента равна обьекта равна,перекидываем указатель на следующий элемент
+            head=head.getNext();
+            return true;
+        }
+        if(head.getNext()==null)return false; // проверка если в списке нет больше элементов
+        Node curNode = head;
+        Node prevNode = head;
+        while ((curNode=curNode.getNext())!=null){ //перемещаем curNode,пробегаемсЯ по всему списку в поиске совпадений,при нахождении выходим из цикла
+            if (curNode.getValue().equals(o)){
+                break;
+            }
+            prevNode=prevNode.getNext();   //перемещаем переменную дальше метом getNext()
+        }
+        if (curNode==null)return false; // если пробежались и не нашли нужного элемента
+        prevNode.setNext(curNode.getNext());//ссылку с предыдущего обьекта перекидываем через обьект который нужно удалить
+        curNode.setNext(null);// ссылку обьекта которого нужно удалить, мы делаем равным нулю
+
+        return true;
+
     }
 
     public void clear() {
@@ -145,11 +166,38 @@ public class MyLinkedList {
     }
 
     public int indexOf(Object o) {
-        return 0;
+        int count=0;
+
+        if(head.getValue().equals(o)){
+            return count;
+
+        }
+        Node curNode = head;
+        while (curNode!=null){
+
+            if(curNode.getValue().equals(o)){
+                return count;
+            }
+            count++;
+            curNode=curNode.getNext();
+        }
+        return -1;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        int count = 0;
+        int secondCount=-1;
+        Node curNode = head;
+        while (curNode!=null){
+            if(curNode.getValue().equals(o)){
+                secondCount=count;
+            }
+            count++;
+            curNode=curNode.getNext();
+
+        }
+
+        return secondCount;
     }
 
     @Override
