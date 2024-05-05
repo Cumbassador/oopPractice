@@ -82,7 +82,9 @@ public class MyLinkedList {
     }
 
     public void clear() {
-        head = null;
+
+        head.setNext(null);
+        head=null;
     }
 
     public Object get(int index) {
