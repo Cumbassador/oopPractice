@@ -163,7 +163,7 @@ public class MyArrayList {
     }
 
     private boolean isCorrectIndex(int index){
-        if ((index>-1) || (index<realSize)){
+        if ((index>-1) && (index<realSize)){
             return true;
         }
         return false;
