@@ -14,7 +14,7 @@ import java.util.List;
 public class MyArraListTest {
     public static final int REAL_SIZE = 2;
 
-    MyArrayList mylist = new MyArrayList();
+     MyArrayList mylist = new MyArrayList();
 
 
 
