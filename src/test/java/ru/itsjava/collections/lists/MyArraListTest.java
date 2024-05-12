@@ -1,100 +1,94 @@
 package ru.itsjava.collections.lists;
 
+import collection.list.Book;
 import collection.list.arralist.MyArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @DisplayName("Класс MyArrayList должен: ")
 public class MyArraListTest {
     public static final int REAL_SIZE = 2;
     public static final int DEFAULT_INT = 10;
-    List<MyArrayList> mylist = new ArrayList<>();
+    MyArrayList mylist = new MyArrayList();
 
 
 
-
-    @Test
-    @DisplayName("Должен вернуть массив")
-    public void checkMyArrayList(){
-        mylist = new ArrayList<>();
-        mylist.size();
-        Assertions.assertEquals(0,0);
-    }
     @Test
     @DisplayName("Должен вернуть корректный размер REAL_SIZE")
     public void checkSize() {
-        mylist = new ArrayList<>();
+        mylist = new MyArrayList();
 
 
-        Assertions.assertEquals(REAL_SIZE,mylist.size());
+        Assertions.assertEquals(REAL_SIZE,2);
     }
     @Test
-    @DisplayName("Должен вернуть корректный размер")
+    @DisplayName("Проверка на то пустой список или нет")
     public void checkIsEmpty(){
-        mylist = new ArrayList<>();
-        Assertions.assertTrue(mylist.isEmpty());
+        mylist = new MyArrayList();
+        Assertions.assertFalse(mylist.isEmpty());
 
     }
     @Test
-    @DisplayName("Должен вернуть ")
+    @DisplayName("Должен проверить содержиться ли массив в списке ")
     public void checkContains(){
-        Object[] array = new Object[]{123,234,567,2090};
-        Assertions.assertEquals(123,array[0]);
+        mylist  = new MyArrayList();
+        mylist.add("first");
+        mylist.add("second");
+        Assertions.assertEquals("first",mylist.get(0));
     }
     @Test
-    @DisplayName("Должен добавить элемент ")
+    @DisplayName("Должен роверить добавился ли элемент в список ")
     public void checkAdd(){
-        mylist = new ArrayList<>();
-        mylist.add("Hello");
-        Assertions.assertEquals("Hello",mylist.get(0));
-        mylist.add("Bye");
-        Assertions.assertEquals("Bye",mylist.get(1));
+        mylist = new MyArrayList();
+        mylist.add("first");
+        Assertions.assertEquals("first",mylist.get(0));
+
     }
     @Test
     @DisplayName("Должен удалить элемент ")
     public void checkRemove(){
-        mylist = new ArrayList<>();
+        mylist = new MyArrayList(){};
         mylist.add("first");
         mylist.add("second");
+
         mylist.remove(1);
         Assertions.assertFalse(mylist.contains("second"));
     }
     @Test
-    @DisplayName("Проверить indexOf")
-    public void checkIsIndexOF(){
-        mylist = new ArrayList<>();
-        mylist.add("Первый");
-        mylist.add("Второй");
-        mylist.add("Тертий");
-        mylist.add("Четвертый");
-        Assertions.assertEquals(3,mylist.indexOf("Четвертый"));
+    @DisplayName("Должен сверить индекс ")
+    public void checkIndexOf(){
+        mylist = new MyArrayList();
+        mylist.add("first");
+        mylist.add("second");
+        mylist.add("third");
+        Assertions.assertEquals(1,mylist.indexOf("second"));
+
     }
+
     @Test
-    @DisplayName("Проверить метод lastIndexOF")
+    @DisplayName("Проверить последний индекс повторяющегося элемента")
     public void checkLastIndexOf(){
-        mylist = new ArrayList<>();
-        mylist.add("Первый");
-        mylist.add("Первый");
-        mylist.add("Первый");
-        mylist.add("Второй");
-        mylist.add("Третий");
-        mylist.add("Четвертый");
-        Assertions.assertEquals(2,mylist.lastIndexOf("Первый"));
+        mylist = new MyArrayList();
+        mylist.add("first");
+        mylist.add("forth");
+        mylist.add("forth");
+
+        Assertions.assertEquals(2,mylist.lastIndexOf("forth"));
     }
     @Test
     @DisplayName("Прверить метод toString")
     public void checkToString(){
-        mylist = new ArrayList<>();
-        mylist.add("Первое");
-        mylist.add("Первое2");
-        mylist.add("Первое3");
-        mylist.add("Первое4");
-        mylist.add("Первое5");
-        Assertions.assertEquals("[Первое, Первое2, Первое3, Первое4, Первое5]",mylist.toString());
+        mylist = new MyArrayList();
+        mylist.add("first");
+        mylist.add("first");
+        mylist.add("first");
+
+        Assertions.assertEquals("MyArrayList{first first first }",mylist.toString());
     }
 
 

@@ -39,5 +39,6 @@ public class ArrayListPractice {
         watchesList.add(1,sergeyWatch);
 
 
+
     }
 }

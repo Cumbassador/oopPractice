@@ -83,8 +83,14 @@ public class MyLinkedList {
 
     public void clear() {
 
-        head.setNext(null);
-        head=null;
+        Node newNode = head;
+        while (newNode.getNext()!=null){
+            newNode.setNext(null);
+        }
+
+
+
+
     }
 
     public Object get(int index) {

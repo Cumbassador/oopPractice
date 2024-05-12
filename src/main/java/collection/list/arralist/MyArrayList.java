@@ -172,7 +172,7 @@ public class MyArrayList {
     public int indexOf(Object o) {
         for (int i = 0; i < array.length; i++) {
             if (o==array[i]){
-                System.out.println("Индекс обьекта равен " + i);
+                return i;
             }
         }
         return 0 ;
@@ -180,10 +180,13 @@ public class MyArrayList {
 
     public int lastIndexOf(Object o) {
         for (int i = array.length-1; i>=0; i--) {
+            int count = i;
             if (o==array[i]){
                 System.out.println("Индекс последнего обьекта равен " + i);
-                break;
+                return count;
+
             }
+
 
         }
         return 0;
