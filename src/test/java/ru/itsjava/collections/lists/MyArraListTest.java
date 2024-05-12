@@ -13,7 +13,7 @@ import java.util.List;
 @DisplayName("Класс MyArrayList должен: ")
 public class MyArraListTest {
     public static final int REAL_SIZE = 2;
-    public static final int DEFAULT_INT = 10;
+
     MyArrayList mylist = new MyArrayList();
 
 
