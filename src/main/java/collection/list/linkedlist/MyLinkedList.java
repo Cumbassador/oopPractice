@@ -129,7 +129,7 @@ public class MyLinkedList {
 
     public Object remove(int index) {
         checkIndex(index);//проверка есть ли в списке такой индекс
-        if (index == 0) {  //условие если индекс равен 0 то создаем узел,передаем туда значение head и передаем значение null
+        if (index == 0) {  //условие если индекс равен 0 то создаем ссылку на узел head, передаем значение null
             Object resValue = head.getValue();
             if (head.getNext() == null) {// если ссылка равна null то head равен null
                 head = null;
