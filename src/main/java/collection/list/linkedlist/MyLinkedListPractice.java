@@ -38,5 +38,6 @@ public class MyLinkedListPractice {
         System.out.println("list.size() = " + list.size());
 
 
+
     }
 }

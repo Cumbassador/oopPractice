@@ -33,8 +33,8 @@ public class MyLinkedList {
 
     public boolean contains(Object o) {
         Node curNode = head;
-        while (curNode.getNext()!=null){
-            if(curNode.getValue().equals(o)){
+        while (curNode.getNext() != null) {
+            if (curNode.getValue().equals(o)) {
                 return true;
             }
         }
@@ -60,20 +60,20 @@ public class MyLinkedList {
         if (head == null) { //проверка на то если первый элемент не равен 0
             return false;
         }
-        if (head.getValue().equals(o)){ //проверка если значение перывого эдемента равна обьекта равна,перекидываем указатель на следующий элемент
-            head=head.getNext();
+        if (head.getValue().equals(o)) { //проверка если значение перывого эдемента равна обьекта равна,перекидываем указатель на следующий элемент
+            head = head.getNext();
             return true;
         }
-        if(head.getNext()==null)return false; // проверка если в списке нет больше элементов
+        if (head.getNext() == null) return false; // проверка если в списке нет больше элементов
         Node curNode = head;
         Node prevNode = head;
-        while ((curNode=curNode.getNext())!=null){ //перемещаем curNode,пробегаемсЯ по всему списку в поиске совпадений,при нахождении выходим из цикла
-            if (curNode.getValue().equals(o)){
+        while ((curNode = curNode.getNext()) != null) { //перемещаем curNode,пробегаемсЯ по всему списку в поиске совпадений,при нахождении выходим из цикла
+            if (curNode.getValue().equals(o)) {
                 break;
             }
-            prevNode=prevNode.getNext();   //перемещаем переменную дальше метом getNext()
+            prevNode = prevNode.getNext();   //перемещаем переменную дальше метом getNext()
         }
-        if (curNode==null)return false; // если пробежались и не нашли нужного элемента
+        if (curNode == null) return false; // если пробежались и не нашли нужного элемента
         prevNode.setNext(curNode.getNext());//ссылку с предыдущего обьекта перекидываем через обьект который нужно удалить
         curNode.setNext(null);// ссылку обьекта которого нужно удалить, мы делаем равным нулю
 
@@ -82,14 +82,12 @@ public class MyLinkedList {
     }
 
     public void clear() {
+        while (head != null) {
+            Node curNode = head;
+            head=head.getNext();
+            curNode=null;
 
-        Node newNode = head;
-        while (newNode.getNext()!=null){
-            newNode.setNext(null);
         }
-
-
-
 
     }
 
@@ -112,9 +110,9 @@ public class MyLinkedList {
 
     public Object set(int index, Object element) {
         checkIndex(index);
-        int count=0;
+        int count = 0;
         Node newNode = head;
-        while (count<index){
+        while (count < index) {
             newNode = newNode.getNext();
             count++;
 
@@ -174,34 +172,34 @@ public class MyLinkedList {
     }
 
     public int indexOf(Object o) {
-        int count=0;
+        int count = 0;
 
-        if(head.getValue().equals(o)){
+        if (head.getValue().equals(o)) {
             return count;
 
         }
         Node curNode = head;
-        while (curNode!=null){
+        while (curNode != null) {
 
-            if(curNode.getValue().equals(o)){
+            if (curNode.getValue().equals(o)) {
                 return count;
             }
             count++;
-            curNode=curNode.getNext();
+            curNode = curNode.getNext();
         }
         return -1;
     }
 
     public int lastIndexOf(Object o) {
         int count = 0;
-        int secondCount=-1;
+        int secondCount = -1;
         Node curNode = head;
-        while (curNode!=null){
-            if(curNode.getValue().equals(o)){
-                secondCount=count;
+        while (curNode != null) {
+            if (curNode.getValue().equals(o)) {
+                secondCount = count;
             }
             count++;
-            curNode=curNode.getNext();
+            curNode = curNode.getNext();
 
         }
 
