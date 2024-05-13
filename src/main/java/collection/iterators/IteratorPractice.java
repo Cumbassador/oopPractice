@@ -7,56 +7,85 @@ import java.util.*;
 
 public class IteratorPractice {
     public static void main(String[] args) {
-        Map<Man,String> men = new HashMap<>();
+        Map<Man, String> men = new HashMap<>();
         Man ivanov = new Man("Иванов");
         Man sidorov = new Man("Сидоров");
         Man zhdanov = new Man("Жданов");
-        men.put(ivanov,"Футболка");
-        men.put(sidorov,"Кепка");
-        men.put(zhdanov,"Свитшот");
+        Man zhukov = new Man("Жуков");
+        Man stepanov = new Man("Степанов");
+        men.put(ivanov, "Футболка");
+        men.put(sidorov, "Кепка");
+        men.put(zhdanov, "Свитшот");
         Map<Man, Fruits> fruitsMap = new HashMap<>();
         Fruits banana = new Fruits("Banana", 200);
         Fruits orange = new Fruits("Orange", 150);
         Fruits apple = new Fruits("Apple", 100);
-        Fruits pineapple = new Fruits("Pineapple", 500);
+        Fruits watermelon = new Fruits("Watermelon", 500);
         Fruits kiwi = new Fruits("Kiwi", 80);
         fruitsMap.put(ivanov, banana);
         fruitsMap.put(sidorov, orange);
         fruitsMap.put(zhdanov, apple);
+        fruitsMap.put(zhukov, watermelon);
+        fruitsMap.put(stepanov, kiwi);
 
         Iterator<Map.Entry<Man, String>> iterator = men.entrySet().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Map.Entry<Man, String> pair = iterator.next();
-            System.out.println(pair.getKey()+":"+pair.getValue());
+            System.out.println(pair.getKey() + ":" + pair.getValue());
         }
-        for(Map.Entry<Man,Fruits>pair: fruitsMap.entrySet()){
-            int count = 0;
-            if (pair.getValue().getTitle().equals("Orange")){
+
+        int count = 0;
+        for (Map.Entry<Man, Fruits> pair : fruitsMap.entrySet()) {
+            if (pair.getKey().getName().length() > 5) {
                 count++;
-                System.out.println("count="+count+":"+pair.getKey());
+
             }
         }
-
-        for(Map.Entry<Man,Fruits>pair: fruitsMap.entrySet()){
-            int count = 0;
-            ArrayList<String> newArray = new ArrayList<>();
-            if (pair.getKey().getName().length()>5){
-                System.out.println("pair.getKey().toString() = " + pair.getKey().toString());
+        System.out.println(count);
+        count = 0;
+        for (Map.Entry<Man, Fruits> pair : fruitsMap.entrySet()) {
+            if (pair.getValue().getTitle().equals("Orange")) {
                 count++;
-                newArray.add(pair.getKey().getName());
+                System.out.println(count);
             }
-            System.out.println(count+ newArray.toString());
+        }
+        for (Map.Entry<Man, Fruits> pair : fruitsMap.entrySet()) {
+            if (pair.getValue().getTitle() != "Watermelon") {
+                System.out.println(pair.getKey() + ":" + pair.getValue().getTitle());
+            }
+        }
+        System.out.println(" ");
 
+        for (Map.Entry<Man, Fruits> pair : fruitsMap.entrySet()) {
+            if (pair.getValue().getTitle().startsWith("A")) {
+                continue;
+            }
+            System.out.println(pair.getKey() + pair.getValue().getTitle());
+        }
+        System.out.println("");
+        for (Map.Entry<Man, Fruits> pair : fruitsMap.entrySet()){
+            if(pair.getValue().getTitle().equalsIgnoreCase("watermelon")){
+                System.out.println(pair.getKey().getName()+":"+pair.getValue().getTitle());
+            }
+        }
+        System.out.println("");
+        Map<Man,Fruits>newMap = new HashMap<>();
+        for (Map.Entry<Man,Fruits>pair:fruitsMap.entrySet()){
+            if (pair.getValue().getTitle().equalsIgnoreCase("watermelon")||pair.getValue().getTitle().equalsIgnoreCase("apple")){
+                newMap.put(pair.getKey(),pair.getValue());
+            }
+        }
+        System.out.println("newMap.toString() = " + newMap.toString());
+        System.out.println("");
+        int totalWeight = 0;
+        int countFruit = 0;
+
+
+        for(Map.Entry<Man,Fruits>pair:fruitsMap.entrySet()){
+            countFruit++;
+            totalWeight=+pair.getValue().getWeight();
         }
 
-
-
-
-
-
-
-
-
-
+        System.out.println(totalWeight/countFruit);
     }
 }
