@@ -53,7 +53,6 @@ public class IOStreamsPractice {
         try (PrintWriter printWriter = new PrintWriter(file1)){
             printWriter.println("Привет это первый файл из которого нужно перенести текст во второй файл");
 
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
