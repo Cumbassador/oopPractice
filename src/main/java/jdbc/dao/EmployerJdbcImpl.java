@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class EmployerJdbcImpl implements EmployerDao{
     public static final String DB_URL = "jdbc:MySql://localhost:3306/new_schema_java?serverTimezone=UTC";
-    public static final String DB_LOGIN = "root";
-    public static final String DB_PASSWORD = "1488";
+    public static final String DB_LOGIN = "";
+    public static final String DB_PASSWORD = "";
 
 //    @Override
 //    public int findAgeByName(String name) {
